@@ -11,12 +11,11 @@
 
 ## 시험 환경에서 설치 (허용된 터미널 사용)
 
-하네스는 **작업 폴더 밖**에 받습니다. 작업 폴더 안에 받으면 저장소 전체가 제출물에 섞입니다.
+작업 폴더에서 두 줄이면 됩니다. 하네스는 작업 폴더 밖(`/tmp/b`)에 받아야 저장소 전체가 제출물에 섞이지 않습니다. `bootstrap.sh`는 인자가 없으면 현재 폴더에 설치합니다.
 
 ```bash
-git clone https://github.com/Keeweon-Choi/cofa-project-brain.git ~/cofa-project-brain
-cd /path/to/TASK_WORKSPACE
-bash ~/cofa-project-brain/bootstrap.sh "$PWD"
+git clone https://github.com/Keeweon-Choi/cofa-project-brain /tmp/b
+bash /tmp/b/bootstrap.sh
 ```
 
 `bootstrap.sh`는 없는 `AGENTS.md`·Skill과 `docs/PROJECT_STATE.md`만 추가합니다. 기존 파일을 덮어쓰거나, MCP를 등록하거나, Codex를 업데이트하지 않습니다. **작업 폴더에 이미 `AGENTS.md`가 있으면** 하네스 규칙을 `docs/COFA_AGENTS.md`로 넣고 안내만 출력합니다. 이때는 기존 `AGENTS.md` 끝에 `docs/COFA_AGENTS.md 도 따른다.` 한 줄을 직접 추가하세요(과제 지침이 우선). 작업 폴더에서 Codex를 시작해야 합니다.
