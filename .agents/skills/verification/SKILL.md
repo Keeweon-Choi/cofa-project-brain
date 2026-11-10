@@ -10,11 +10,11 @@ description: Choose inexpensive but decision-relevant smoke, regression, hard-co
 Start from SRS acceptance criteria and actual user journey. Select the smallest set of tests that can catch major failure modes.
 
 - For all tasks: run the actual entrypoint, use representative valid and invalid inputs, verify output format and persistence if applicable.
-- Build one checker command early that prints `PASS`/`FAIL` per hard constraint plus key quality numbers (and the baseline's numbers). The human runs it and reads the output; every later change is compared with it.
-- For optimizers: check every hard constraint, edge users/unassigned entities, capacity/time limits, baseline quality, outlier harm, scale and deterministic behavior where relevant. Do not assume a feasible solution is optimal. Watch memory and runtime on a small input first (OOM is not excused).
+- Build one checker command early that prints `PASS`/`FAIL` per hard constraint plus key quality numbers (and the baseline's numbers: current practice if one exists, otherwise the simplest method). The human runs it and reads the output; every later change is compared with it.
+- For optimizers: check every hard constraint, edge users/unassigned entities, capacity/time limits, baseline quality, outlier harm, scale and deterministic behavior where relevant. Do not assume a feasible solution is optimal. Watch memory and runtime on a small input first (an out-of-memory crash can cost the whole run).
 - For data/policy tasks: count input rows/files, reconcile aggregation totals, check version/date priority and citation back to source, verify edge cases.
-- For web apps: bind the server to `0.0.0.0` and report the real port. The agent checks endpoints with `curl` or existing tests only; the human checks the UI manually in the platform Browser tool. No browser automation (Computer Use is banned).
+- For web apps: report the real port, and bind the server to `0.0.0.0` when the environment shows results through a remote preview. The agent checks endpoints with `curl` or existing tests only; the human checks the UI by hand. No browser automation unless the user says the event allows it.
 - When a bug or edge case is fixed, add one row to the `PROJECT_STATE.md` problem log: symptom (repro input) → cause → fix → check command/result.
-- Before submission: required file names/paths, editor save state (no conflict), `git status`, `du -sh .` (total ≤ 10GB).
+- Before submission: required file names/paths, editor save state (no conflict), `git status`, `du -sh .` against any size limit, and one run from a clean state.
 - Prefer quick tests already available in repo. Avoid building new testing frameworks or chasing arbitrary coverage goals for a short assessment.
 - Record source of truth, test command, real result, PASS/FAIL/NOT_RUN, caveats and next fix. Re-run failed checks after relevant corrections.

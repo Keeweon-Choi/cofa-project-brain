@@ -29,4 +29,4 @@ Human takeaway: [what matters most, in plain language]
 Provisional action: [safe/reversible next step if useful]
 ```
 
-**Stop rule:** Broaden exploration only while it is likely to change the decision. In a 3-hour challenge, avoid large speculative research loops.
+**Stop rule:** Broaden exploration only while it is likely to change the decision. In a time-boxed challenge, avoid large speculative research loops.
